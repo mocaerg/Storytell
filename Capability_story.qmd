@@ -1,0 +1,417 @@
+---
+title: |
+  Understand Process Capability
+
+
+format: 
+  closeread-html:
+    embed-resources: true
+    cr-style:
+      section-background-color: "white"
+      narrative-background-color-overlay : "black"
+      narrative-text-color-overlay : "limegreen"
+      #narrative-background-color-sidebar: "black"
+      #narrative-sidebar-width: minmax(200px, 1fr)
+      #narrative-text-color-sidebar: "green"
+      narrative-font-family: 'Georgia, "Times New Roman", Times, serif'
+      narrative-font-size: 10
+      poem-font-family: 'Georgia, "Times New Roman", Times, serif'
+      remove-header-space: true
+---
+
+
+Scroll through this scrollytelling journey to quickly grasp the key differences between Process Capability Indices: Cp, Cpk, Pp, and Ppk.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+
+#  ![](images/logobis.png){width=1in}  
+
+
+data <- data.frame(x=rnorm(5000,10,0.5), y = 1:5000)
+```
+
+:::::::::::::::::::::: {.cr-section layout="overlay-right"}
+When we measure something continuous, like weight, length, or assay results,@cr-myplot-1
+
+::: {#cr-myplot-1}
+```{r message=FALSE,warning=FALSE}
+data %>% 
+  ggplot(aes(x=x,after_stat(density))) +
+  geom_histogram(color="white",color="Black", fill= "limegreen") +
+  annotate("segment", x = 7, y = 0, xend = 7, yend = 0.8, color="red") +
+  annotate("segment", x = 13, y = 0, xend = 13, yend = 0.8, color="red") +
+  annotate("text", x = 13, y = 0.85, label = "USL") +
+  annotate("text", x = 7, y = 0.85, label = "LSL") +
+  ylim(0,1) +
+  xlim(7,20) +
+  theme_minimal() +
+  labs(y="", x="", subtitle = "USL / LSL: Upper / Lower Specification Limit") +
+  theme(axis.line.y = element_blank(), axis.text = element_blank())
+```
+:::
+
+the values often form a pattern called a normal distribution @cr-myplot-2
+
+::: {#cr-myplot-2}
+```{r message=FALSE,warning=FALSE}
+data %>% 
+  ggplot(aes(x=x,..density..)) +
+  geom_histogram(color="white",color="Black", fill= "limegreen") +
+  geom_density(color="red", size=1) +
+  annotate("segment", x = 7, y = 0, xend = 7, yend = 0.8, color="red") +
+  annotate("segment", x = 13, y = 0, xend = 13, yend = 0.8, color="red") +
+  annotate("text", x = 13, y = 0.85, label = "USL") +
+  annotate("text", x = 7, y = 0.85, label = "LSL") +
+  ylim(0,1) +
+  xlim(7,20) +
+  theme_minimal() +
+  labs(y="", x="") +
+  theme(axis.line.y = element_blank(), axis.text = element_blank())
+```
+:::
+
+And one key property of a normal distribution @cr-myplot-3
+
+is that 99.7% of the data falls within three standard deviations above or below the mean @cr-myplot-4
+
+::: {#cr-myplot-3}
+```{r message=FALSE,warning=FALSE}
+ga <- data %>% 
+  ggplot(aes(x=x,..density..)) +
+  geom_density(color="red") +
+  annotate("segment", x = 7, y = 0, xend = 7, yend = 0.8, color="red") +
+  annotate("segment", x = 13, y = 0, xend = 13, yend = 0.8, color="red") +
+  annotate("text", x = 13, y = 0.85, label = "USL") +
+  annotate("text", x = 7, y = 0.85, label = "LSL") +
+  ylim(0,1) +
+  xlim(7,20) +
+  theme_minimal() +
+  labs(y="", x="") +
+  theme(axis.line.y = element_blank(), axis.text = element_blank())
+
+ga
+```
+:::
+
+::: {#cr-myplot-4}
+```{r message=FALSE,warning=FALSE}
+
+ga <- ga +
+  annotate("segment", x = 8.8, y = 0.01, xend = 11.2, yend = 0.01 ,arrow = arrow(ends = "both", type = "closed")) +
+  annotate("text", x = 10, y = 0.2, label = "Data spread: mean ± 3s") +
+  labs(subtitle = "s: standard deviation")
+
+ga
+
+```
+:::
+
+And to ensure the process that have generated these data is capable @cr-myplot-6
+
+
+its variation (or spread) must be less than or equal to the allowable specification range @cr-myplot-66
+
+::: {#cr-myplot-6}
+```{r message=FALSE,warning=FALSE}
+
+gaa <- data %>% 
+  ggplot(aes(x=x,..density..)) +
+  geom_density(color="white") +
+  annotate("segment", x = 7, y = 0, xend = 7, yend = 0.8, color="red") +
+  annotate("segment", x = 13, y = 0, xend = 13, yend = 0.8, color="red") +
+  
+  annotate("text", x = 13, y = 0.85, label = "USL") +
+  annotate("text", x = 7, y = 0.85, label = "LSL") +
+
+  annotate("segment", x = 8.8, y = 0.01, xend = 11.2, yend = 0.01 ,arrow = arrow(ends = "both", type = "closed")) +
+  annotate("text", x = 10, y = 0.1, label = "Data spread: mean ± 3s") +
+
+  annotate("segment", x = 7, y = 0.5, xend = 13, yend = 0.5 ,arrow = arrow(ends = "both", type = "closed"), color="red") +
+
+  
+  ylim(0,1) +
+  xlim(7,20) +
+  theme_minimal() +
+  labs(y="", x="") +
+  theme(axis.line.y = element_blank(), axis.text = element_blank())
+
+gaa
+
+```
+:::
+
+::: {#cr-myplot-66}
+```{r}
+gaa <- gaa +
+   annotate("segment", x = 8.8, y = 0.01, xend = 8.8, yend = 0.5, color="black", linetype=2) +
+   annotate("segment", x = 11.2, y = 0.01, xend = 11.2, yend = 0.5, color="black", linetype=2)
+
+gaa
+```
+:::
+
+
+
+
+this is what we call @cr-pp
+
+the Pp index [@cr-pp]{scale-by="2"}
+
+::: {#cr-pp}
+$Pp = \dfrac{(USL-LSL)}{6 \ s}$
+:::
+
+
+This index compare the actual process performance (the voice of the process) against the specification (the voice of the customer).
+
+
+But wait! @cr-myplot-2
+
+What's happen for this index if the data is shift like this ? @cr-myplot-7
+
+::: {#cr-myplot-7}
+```{r message=FALSE,warning=FALSE}
+data %>% 
+  mutate(x = x + 6) %>% 
+  ggplot(aes(x=x,..density..)) +
+  geom_histogram(color="white",color="Black", fill= "limegreen") +
+  geom_density(color="red", size=1) +
+  annotate("segment", x = 7, y = 0, xend = 7, yend = 0.8, color="red") +
+  annotate("segment", x = 13, y = 0, xend = 13, yend = 0.8, color="red") +
+  annotate("text", x = 13, y = 0.85, label = "USL") +
+  annotate("text", x = 7, y = 0.85, label = "LSL") +
+  ylim(0,1) +
+  xlim(7,20) +
+  theme_minimal() +
+  labs(y="", x="") +
+  theme(axis.line.y = element_blank(), axis.text = element_blank())
+```
+:::
+
+Actually, nothing changes—since the data spread remains the same, the Pp index will still be greater than 1, even if all the data points fall outside the specification limits @cr-myplot-8
+
+::: {#cr-myplot-8}
+```{r message=FALSE,warning=FALSE}
+
+data %>% 
+  ggplot(aes(x=x,..density..)) +
+  geom_density(color="white") +
+  annotate("segment", x = 7, y = 0, xend = 7, yend = 0.8, color="red") +
+  annotate("segment", x = 13, y = 0, xend = 13, yend = 0.8, color="red") +
+  annotate("text", x = 13, y = 0.85, label = "USL") +
+  annotate("text", x = 7, y = 0.85, label = "LSL") +
+
+  annotate("segment", x = 6+8.8, y = 0.01, xend = 6+11.2, yend = 0.01 ,arrow = arrow(ends = "both", type = "closed")) +
+  annotate("text", x = 6+10, y = 0.1, label = "Data spread: mean ± 3s") +
+
+  annotate("segment", x = 7, y = 0.5, xend = 13, yend = 0.5 ,arrow = arrow(ends = "both", type = "closed"), color="red") +
+
+  
+  ylim(0,1) +
+  xlim(7,20) +
+  theme_minimal() +
+  labs(y="", x="") +
+  theme(axis.line.y = element_blank(), axis.text = element_blank())
+
+```
+:::
+
+Consequently, to complement the Pp index, the Ppk index is also used, as it is take into account the mean of data observed @cr-myplot-9
+
+::: {#cr-myplot-9}
+```{r message=FALSE,warning=FALSE}
+
+gb <- data %>% 
+  ggplot(aes(x=x,..density..)) +
+  geom_density(color="white") +
+  annotate("segment", x = 7, y = 0, xend = 7, yend = 0.8, color="red") +
+  annotate("segment", x = 15, y = 0, xend = 15, yend = 0.8, color="red") +
+  annotate("segment", x = 11, y = 0.45, xend = 11, yend = 0.55, color="red") +
+  annotate("text", x = 15, y = 0.85, label = "USL") +
+  annotate("text", x = 7, y = 0.85, label = "LSL") +
+  annotate("text", x = 11, y = 0.6, label = "Target") +
+  
+  annotate("segment", x = 11, y = 0.1, xend = 16, yend = 0.1 ,arrow = arrow(ends = "both", type = "closed")) +
+  
+  annotate("segment", x = 13.5, y = 0.08, xend = 13.5, yend = 0.12, color="black") +
+  annotate("text", x = 13.5, y = 0.15, label = "mean") +
+
+  annotate("segment", x = 7, y = 0.5, xend = 15, yend = 0.5 ,arrow = arrow(ends = "both", type = "closed"), color="red") +
+
+  ylim(0,1) +
+  xlim(7,20) +
+  theme_minimal() +
+  labs(y="", x="") +
+  theme(axis.line.y = element_blank(), axis.text = element_blank())
+
+gb
+
+```
+:::
+
+This index compare the half part of the distribution (3s) to the spread between ULS or LSL with the mean of the data. @cr-myplot-10
+
+::: {#cr-myplot-10}
+```{r message=FALSE,warning=FALSE}
+
+gb <- gb + 
+   annotate("segment", x = 13.5, y = 0.17, xend = 13.5, yend = 0.35, color="black", linetype ="dashed") +
+   annotate("segment", x = 16, y = 0.06, xend = 16, yend = 0.2, color="black", linetype ="dashed") +
+   annotate("segment", x = 13.5, y = 0.35, xend = 15, yend = 0.35 ,arrow = arrow(ends = "both", type = "closed"), color="blue") +
+   annotate("segment", x = 13.5, y = 0.2, xend = 16, yend = 0.2 ,arrow = arrow(ends = "both", type = "closed"), color="blue") +
+   annotate("text", x = 17, y = 0.35, label = " USL - mean") +
+   annotate("text", x = 17, y = 0.2, label = " 3 s")
+  
+gb
+  
+  
+```
+:::
+
+And as we have both side we make this comparison for each site @cr-ppk
+
+and then we take the min [@cr-ppk]{scale-by="2"}
+
+::: {#cr-ppk}
+$Ppk = min[\dfrac{(USL-mean)}{3 \ s}; \dfrac{(mean-LSL)}{3 \ s}]$
+:::
+
+Now suppose, data have been generated in time like this control chart. @cr-myplot-11
+
+::: {#cr-myplot-11}
+```{r message=FALSE,warning=FALSE}
+
+u <- c(10,10,10,20,20,20,13,13,13,13,13,13,13,13,13,13,4,4,4,4,4,4,4,4,4,4,4,4,4,4,15,15,15,15,15,15,16,16,16,16,16,16,27,27,27,27,27,27,28,28,28,18,18,8,8,8,8,8,8,8,8,8,8,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,4,4,4,4,4,4,4,4,6,6,6,6,6,6,6,6,6,6,6,6)
+y <- rnorm(118,0,2)
+
+data <- data.frame(x=1:118,u=u,y=y) %>% mutate(yy = u + y)
+
+
+gc <- data %>% 
+  ggplot(aes(x, yy)) +
+  geom_jitter(alpha=0.2, width = 1) +
+  geom_smooth(aes(x,u+10),color="red", method = "gam", se = FALSE) +
+  geom_smooth(aes(x,u-10), color="red", method = "gam", se = FALSE) +
+  ylim(-50,50) +
+  xlim(0,200) +
+  theme_minimal() +
+  labs(y="", x="") +
+  theme(axis.line.y = element_blank(), axis.text = element_blank())
+
+gc
+
+```
+:::
+
+We can distinguish between two types of process variability.
+
+the short-term process variability. @cr-myplot-12
+
+::: {#cr-myplot-12}
+```{r message=FALSE,warning=FALSE}
+
+gc <- gc +
+      annotate("segment", x = 25, y = -6, xend = 25, yend = 13, color="black", linetype ="dashed", arrow = arrow(ends = "both", type = "closed") ) +
+      annotate("text", x = 15, y = -10, label = "Short Variability")
+
+gc
+
+```
+:::
+
+This is estimated using the average of the moving range between consecutive values because we make hypothesis that variability between consecutive values come from only equipment or machine variability.
+
+and the long-term process variability @cr-myplot-13
+
+::: {#cr-myplot-13}
+```{r message=FALSE,warning=FALSE}
+
+gc <- gc +
+      annotate("segment", x = 130, y = -10, xend = 130, yend = 33, color="black", linetype ="dashed", arrow = arrow(ends = "both", type = "closed") ) +
+      annotate("segment", x = 90, y = -10, xend = 130, yend = -10, color="black", linetype ="dashed") +
+      annotate("segment", x = 42, y = 34, xend = 130, yend = 34, color="black", linetype ="dashed") +
+      annotate("text", x = 150, y = 20, label = "Full Variability")
+
+gc
+```
+:::
+
+that represent the full variability observed coming from the common categories (People, Methods, Machines, Materials, Measurements and Environment).
+
+The Pp or Ppk indexes used the long-term process variability.
+
+But if we used instead the short-term process variability $s^{MR}$ @cr-ppcp
+
+we obtain the Cp or Cpk indexes [@cr-ppcp]{scale-by="2"}
+
+::: {#cr-ppcp}
+$Cp = \dfrac{(LS-LI)}{6 \ s^{MR}}$
+
+$Cpk = min[\dfrac{(USL-mean)}{3 \ s^{MR}}; \dfrac{(mean-LSL)}{3 \ s^ {MR}}]$
+:::
+
+Cp index represent the potential capability index that we would expect @cr-myplot-14
+
+::: {#cr-myplot-14}
+```{r}
+
+gd <- ggplot() +
+  annotate("text",x=2,y=20,label="Cp",size=18) +
+  theme_minimal() +
+  labs(y="", x="") +
+  xlim(0,20) +
+  ylim(0,25) +
+  theme(axis.line.y = element_blank(), axis.text = element_blank())
+
+gd
+
+```
+:::
+
+However with other source of variability that can exist we have a process with a Pp index @cr-myplot-15
+
+::: {#cr-myplot-15}
+```{r}
+
+gd <- gd +
+  annotate("text",x=2,y=20,label="Cp",size=18) +
+  annotate("text",x=9,y=13,label="Pp",size=18) +
+  
+  annotate("segment", x = 2, y=18, xend = 2, yend = 12.9, linewidth=2, color="limegreen") +
+  annotate("segment", x = 2, y=13, xend = 7, yend = 13, linewidth=2, color="limegreen", arrow = arrow(type = "closed") )
+
+gd
+
+```
+:::
+
+And finally knowing that Process is never align on the target, customer received products with a process that have a Ppk index @cr-myplot-16
+
+::: {#cr-myplot-16}
+```{r}
+
+gd <- gd +
+  
+  annotate("text",x=16,y=5,label="Ppk",size=18) +
+  annotate("segment", x = 9, y=11, xend = 9, yend = 4.9, linewidth=2, color="limegreen") +
+  annotate("segment", x = 9, y=5, xend = 13.5, yend = 5, linewidth=2, color="limegreen", arrow = arrow(type = "closed"))
+
+
+gd
+
+```
+:::
+
+This drop of capability index @cr-drop
+
+
+::: {#cr-drop}
+$Cp > Pp > Ppk$
+:::
+
+is what we call the capability drop [@cr-drop]{scale-by="2"} 
+
+::::::::::::::::::::::
+
+Author: gmo date: 2025-07-07
