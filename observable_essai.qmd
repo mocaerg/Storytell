@@ -1,0 +1,60 @@
+---
+title: "Observable_essai"
+format:
+  html:
+    echo: false
+    code-tools: true
+    embed-resources: true
+
+---
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+library(tidyverse)
+library(gmo)
+
+
+arrow::write_feather(
+  gmo_product %>% rename("APAP_Assay"=APAP.Assay), 
+  "data.arrow", 
+  compression = "uncompressed"
+)
+
+
+```
+
+
+```{ojs}
+//| echo: false
+
+viewof assay_min = Inputs.range([0, 100], {value: 35, step: 1, label: "Assay min (%):"})
+viewof country = Inputs.checkbox(['A1', 'A2', 'A11'],{label: "Country:"})
+
+
+```
+
+
+```{ojs}
+Inputs.table(filtered)
+```
+
+
+
+```{ojs}
+data = FileAttachment("data.arrow").arrow()
+```
+
+
+```{ojs}
+filtered = data.filter(function(product) {
+             return  country.includes(product.Formula);
+              })
+              
+```
+
+
+
+<!-- ```{ojs} -->
+<!-- //| echo: false -->
+<!-- Plot.dot(filtered, {x: "Country", y: "APAP_Assay", fill:"Country"}).plot() -->
+<!-- ``` -->

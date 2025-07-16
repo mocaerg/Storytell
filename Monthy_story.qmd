@@ -1,0 +1,100 @@
+---
+title: When Monty Hall runs into Bayes !
+subtitle: >
+    Scroll through this storytelling journey to quickly understand the Monty Hall problem and make link     with Bayes's theorem.
+
+title-block-style: manuscript
+
+format: 
+  closeread-html:
+    embed-resources: true
+    cr-style:
+      section-background-color: "white"
+      narrative-background-color-sidebar: "skyblue"
+      narrative-sidebar-width: minmax(200px, 1fr)
+      narrative-text-color-sidebar: "black"
+      narrative-font-family: 'Georgia, "Times New Roman", Times, serif'
+      narrative-font-size: 16
+      poem-font-family: 'Georgia, "Times New Roman", Times, serif'
+      remove-header-space: true
+      
+---
+
+:::: cr-section
+
+:::{#cr-image-1}
+![](/images/image_1.png)
+:::
+
+:::{#cr-image-2}
+![](/images/image_2.png)
+:::
+
+:::{#cr-image-3}
+![](/images/image_3.png)
+:::
+
+
+:::{#cr-image-4}
+![](/images/image_4.png)
+:::
+
+Imagine you're playing a game where you have to choose one of three doors. @cr-image-1
+
+Behind one door is a winning card, and behind the other two are goats. 
+
+After you make your choice @cr-image-3
+
+the host—who knows what’s behind each door—opens one of the two remaining doors to reveal a goat. @cr-image-4
+
+Then, they ask if you’d like to switch your original choice.
+
+Would you stick with your original choice, or switch to the other door?
+
+
+If you believe that your choice doesn't affect the odds of winning the car, then the rest of the explanation will be valuable to you.
+
+
+At the beginning of the game, when you do your first choice, the probability that you choose the correct door with the car is 1/3.
+
+
+It is means as well that the probability that you choose a door with a goats is 2/3.
+
+After your first choice, the host will open one of the two remaining doors behind which we have a goat. @cr-image-8
+
+
+::: {#cr-image-8}
+```{dot}
+graph G {
+  layout=neato
+  run -- intr;
+  intr -- runbl;
+  runbl -- run;
+  run -- kernel;
+  kernel -- zombie;
+  kernel -- sleep;
+  kernel -- runmem;
+  sleep -- swap;
+  swap -- runswap;
+  runswap -- new;
+  runswap -- runmem;
+  new -- runmem;
+  sleep -- runmem;
+}
+```
+:::
+
+
+
+
+
+
+
+
+
+
+
+
+
+::::
+
