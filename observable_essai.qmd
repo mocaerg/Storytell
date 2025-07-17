@@ -1,5 +1,5 @@
 ---
-title: "Observable_essai"
+title: "Rechauffement Climatique"
 format:
   html:
     echo: false
@@ -8,53 +8,92 @@ format:
 
 ---
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r}
+#| message: false
+#| warning: false
 
+library(readr)
 library(tidyverse)
-library(gmo)
+library(lubridate)
+library(slider)
+
+data_r <- read_csv("data/R_2024_2025.csv") %>% 
+            pivot_longer(cols = c(TN,TX), names_to = "Day", values_to = "Temperature") %>% 
+            filter(!is.na(Temperature))
+
+data_rr <- read_csv("data/R_1970_2023.csv") %>%
+             pivot_longer(cols = c(TN,TX), names_to = "Day", values_to = "Temperature") %>% 
+            filter(!is.na(Temperature))
+
+data_r <- rbind(data_r,data_rr) %>% 
+            mutate(Year = year(Date)) %>% 
+            mutate(JourYear = yday(Date)) %>% 
+            filter(Day =="TX") %>% 
+            mutate(MoyMob = slide_dbl(.x = Temperature, .f = mean, .before = 1000, .after = 0))
+            #filter(Year %in% c(1950,1955,1960,1965,1970,1975,1980,1985,1990,1995,2000,2005,2010,2015,2024,2025))
 
 
-arrow::write_feather(
-  gmo_product %>% rename("APAP_Assay"=APAP.Assay), 
-  "data.arrow", 
-  compression = "uncompressed"
-)
-
+ojs_define(data = data_r)
 
 ```
+
+
 
 
 ```{ojs}
 //| echo: false
 
-viewof assay_min = Inputs.range([0, 100], {value: 35, step: 1, label: "Assay min (%):"})
-viewof country = Inputs.checkbox(['A1', 'A2', 'A11'],{label: "Country:"})
+poste = [
+ "ARBENT",                        "BALAN_AERO",                    "BELLEY",                        "VERIZIEU",                     
+ "CESSY",                         "CEYZERIAT_SAPC",                "AMBERIEU",                      "DIVONNE ZA",                   
+ "HAUTEVILLE_EDF_RIC-A2-DOUBLON", "LA BALME SUR CERDON_SAPC",      "MARLIEUX",                      "MIJOUX",                       
+ "NANTUA",                        "SAINT JULIEN SUR REYSSOUZE",    "ST RAMBERT CG01",               "SUTRIEU",                      
+ "BALAN",                         "BANEINS",                      
+ "BEAUPONT",                      "BELLEGARDE",                    "BELLEY MAN",                   
+ "BENONCES",                      "BOURG EN BRESSE",               "BRENAZ",                       
+ "CHANAY",                        "CONFRANCON",                     
+ "COURTES",                       "DIVONNE",                       "GIRON",                         "HAUTEVILLE",                 
+ "IZERNORE",                                            
+ "LALLEYRIAT",                    "BURL",                          "LELEX",                        
+ "LOYETTES",                      "MESSIMY",                      
+ "MIJ LELEX",                     "MISERIEUX",                     "MONTAGNIEU",                    "MONTLUEL",                     
+ "NEUVILLE",                      "NIEVROZ",                      
+ "OYONNAX",                       "POLLIAT",                       "SAINT ETIENNE DU BOIS",         "SAINT RAMBERT EN BUGEY",       
+ "THOIRY",                        "VIEU",                         
+ "VILLEREVERSURE",                "VIRIEU-LE-GRAND",               "VIRIEU-LE-PETIT"
+ ]
 
+viewof country = Inputs.select(poste,{label: "POSTE:"})
 
-```
+data_ojs = transpose(data)
 
-
-```{ojs}
-Inputs.table(filtered)
-```
-
-
-
-```{ojs}
-data = FileAttachment("data.arrow").arrow()
-```
-
-
-```{ojs}
-filtered = data.filter(function(product) {
-             return  country.includes(product.Formula);
+filtered = data_ojs.filter(function(product) {
+             return  country.includes(product.Poste);
               })
-              
+
 ```
 
 
 
-<!-- ```{ojs} -->
-<!-- //| echo: false -->
-<!-- Plot.dot(filtered, {x: "Country", y: "APAP_Assay", fill:"Country"}).plot() -->
-<!-- ``` -->
+```{ojs}
+
+Plot.plot({
+  width:900,
+  x:{
+    grid: true,
+    label: "Time",
+    type: "time"
+  },
+
+  y:{
+    grid: true,
+    label: "Temperature (°C)"
+  },
+
+  marks: [
+    Plot.dotY(filtered, {x: "Date", y: "Temperature", r:0.3, stroke:"gray"}),
+    Plot.dotY(filtered, {x: "Date", y: "MoyMob", r:0.3, stroke:"red"})
+    ]
+})
+ 
+```
