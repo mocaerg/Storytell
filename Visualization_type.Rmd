@@ -1,0 +1,87 @@
+---
+title: "DataViz"
+authors: "gmo"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    theme: flatly
+    source_code: embed
+---
+
+
+```{r}
+library(tidyverse)
+library(flexdashboard)
+library(gmo)
+
+```
+
+
+# Home {data-icon='fa-home'}
+
+<h3><u> A taxonomy of visualization tools: </u></h3>
+
+Exploratory Data Analysis (EDA) is a fundamental step in Data Science.
+<br>
+<br>
+Whether the goal is to understand, investigate, or communicate insights, EDA plays a crucial role.
+<br>
+<br>
+That’s why it’s important <b> to be familiar </b> with the different types of data visualizations available.
+
+
+# Pie Chart {data-navmenu="Proportions"}
+
+# Donut Chart {data-navmenu="Proportions"}
+
+# Treemap {data-navmenu="Proportions"}
+
+# Stacked Bar Chart {data-navmenu="Proportions"}
+
+# Stacked Area Chart {data-navmenu="Proportions"}
+
+# Bubble Chart {data-navmenu="Relationships"}
+
+# Histogram {data-navmenu="Relationships"}
+
+
+```{r}
+gmo_product %>% 
+  gmo_chart_distribution(feature = Formula,values = APAP.Assay,vertical = 0,overlap = 0.9,title = "Histogram",lab_x = "Value (%)",lab_y = "Products")
+
+```
+
+# Force-Directed Graph {data-navmenu="Relationships"}
+
+# Chord Diagram {data-navmenu="Relationships"}
+
+# Scatter Plot {data-navmenu="Relationships"}
+
+```{r}
+gmo_product %>% 
+  gmo_chart_barpoint(feature = Formula,values = APAP.Assay,vertical = 0,title = "Barpoint",lab_x = "Value (%)",lab_y = "Products")
+
+```
+
+
+
+# Correlation Matrix {data-navmenu="Relationships"}
+
+# Stem-and-leaf {data-navmenu="Relationships"}
+
+# Headmap {data-navmenu="Difference"}
+
+# Radar Chart {data-navmenu="Difference"}
+
+# Star Plot {data-navmenu="Difference"}
+
+# Parallel Coordinates Plot {data-navmenu="Difference"}
+
+# Bubble Map {data-navmenu="Spatial"}
+
+# Flow Map {data-navmenu="Spatial"}
+
+# Choropleth {data-navmenu="Spatial"}
+
+
+
