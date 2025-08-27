@@ -1,38 +1,104 @@
 ---
-title: "Chgt_Heure"
-format: html
+title: "Les Français sont-ils satisfaits du changement d’heure ?"
+subtitle: "Du 4 février au 3 mars 2019, la commission des affaires européennes a lancé une consultation citoyenne sur le changement d'heure (https://data.assemblee-national.fr/). Cette consultation a reçu <b>2 103 999 réponses</b>. Les résultats sont présentés ci-dessous sous forme graphique, par région et en fonction du niveau de satisfaction des répondants:"
+author: gmo
+format:
+  html:
+    echo: false
+    code-tools: true
+    embed-resources: true
 ---
 
+::: {.panel-tabset}
 
-Où résidez-vous ?
-2 Auvergne-Rhône-Alpes
-3 Bourgogne-Franche-Comté
-4 Bretagne
-5 Centre-Val de Loire
-6 Corse
-7 Grand Est
-8 Guadeloupe
-9 Guyane
-10 Hauts-de-France
-11 Saint Martin
-12 Saint-Barthélemy
-13 Île-de-France
-14 La Réunion
-15 Martinique
-16 Mayotte
-17 Normandie
-18 Nouvelle-Aquitaine
-19 Nouvelle-Calédonie
-20 Occitanie
-21 Pays de la Loire
-22 Polynésie française
-23 Provence-Alpes-Côte d\'Azur
-24 Saint-Pierre-et-Miquelon
-25 Wallis et Futun
+## Region
 
-Votre expérience du changement d’heure en vigueur est-elle :
-1 Très satisfaisante
-2 Satisfaisante
-3 Sans opinion
-4 Négative
-5 Très négative
+```{ojs}
+viewof region = Inputs.select(["Auvergne-Rhône-Alpes","Bourgogne-Franche-Comté","Bretagne","Centre-Val de Loire","Corse","Grand Est","Guadeloupe","Guyane","Hauts-de-France","Saint Martin","Saint-Barthélemy","Île-de-France","La Réunion","Martinique","Mayotte","Normandie","Nouvelle-Aquitaine","Nouvelle-Calédonie","Occitanie","Pays de la Loire","Polynésie française","Provence-Alpes-Côte d'Azur","Saint-Pierre-et-Miquelon","Wallis et Futuna"], {label: "Region"})
+
+html`<br>`
+
+html`<style="text-align:left;"><i>En plus du niveau de satisfaction, il était également demandé si le maintien du changement d’heure était souhaité.</i></style>`
+
+Plot.plot({
+  height: 600,
+  
+  y: {
+      label: "%",
+      grid: true
+    },
+    
+  x: {
+    domain: d3.sort(filtered_b, d => - d.Experience).map(d => d.Name_Experience),
+    grid: true
+    },
+ 
+ color: {legend: true}, 
+ 
+  marks: [
+    Plot.barY(filtered_b,{
+     x: l => l.Name_Experience,
+     y: d => d.Total / d.Total_Region * 100,
+     fill: u => u.Name_Preference
+     })
+     ]
+})
+
+```
+
+## Experience
+
+```{ojs}
+viewof experience = Inputs.checkbox(["Très satisfaisante","Satisfaisante","Sans opinion","Négative","Très négative"], {label: "Experience", multiple:true, value: ["Très satisfaisante","Satisfaisante"]})
+
+html`<br>`
+
+Plot.plot({
+  height: 600,
+  marginLeft:150,
+
+  x: {
+      label: "%",
+      grid: true
+    },
+
+  y: {
+    domain: d3.sort(filtered_a, d => - (d.Total/d.Total_Region)).map(d => d.Name_Region),
+    grid: true,
+    },
+ 
+ color: {legend: true}, 
+ 
+  marks: [
+    Plot.barX(filtered_a,{
+     y: l => l.Name_Region,
+     x: d => d.Total / d.Total_Region * 100,
+     fill: u => u.Name_Experience
+     }),
+     
+     Plot.ruleX([50], {stroke: "red", strokeWidth: 2})
+     ]
+})
+
+```
+
+:::
+
+```{ojs}
+data = FileAttachment("data/Consultation_Chgt_Heure.csv").csv({ typed: true })
+
+filtered_a = data.filter(function(product) {
+                  return experience.includes(product.Name_Experience)
+                  })
+
+filtered_b = data.filter(function(product) {
+             return  product.Name_Region == region;
+              })              
+```
+
+
+
+
+
+
+
