@@ -1,6 +1,6 @@
 ---
 title: "Les Français sont-ils satisfaits du changement d’heure ?"
-subtitle: "Du 4 février au 3 mars 2019, la commission des affaires européennes a lancé une consultation citoyenne sur le changement d'heure (https://data.assemblee-national.fr/). Cette consultation a reçu <b>2 103 999 réponses</b>. Les résultats sont présentés ci-dessous sous forme graphique, par région et en fonction du niveau de satisfaction des répondants:"
+subtitle: "Du 4 février au 3 mars 2019, la commission des affaires européennes a lancé une consultation citoyenne sur le changement d'heure (https://data.assemblee-national.fr/). Cette consultation a reçu <b>2 103 999 réponses</b>. Les résultats sont présentés ci-dessous sous forme graphique, en fonction du niveau de satisfaction des répondants et par région :"
 author: gmo
 format:
   html:
@@ -10,41 +10,6 @@ format:
 ---
 
 ::: {.panel-tabset}
-
-## Region
-
-```{ojs}
-viewof region = Inputs.select(["Auvergne-Rhône-Alpes","Bourgogne-Franche-Comté","Bretagne","Centre-Val de Loire","Corse","Grand Est","Guadeloupe","Guyane","Hauts-de-France","Saint Martin","Saint-Barthélemy","Île-de-France","La Réunion","Martinique","Mayotte","Normandie","Nouvelle-Aquitaine","Nouvelle-Calédonie","Occitanie","Pays de la Loire","Polynésie française","Provence-Alpes-Côte d'Azur","Saint-Pierre-et-Miquelon","Wallis et Futuna"], {label: "Region"})
-
-html`<br>`
-
-html`<style="text-align:left;"><i>En plus du niveau de satisfaction, il était également demandé si le maintien du changement d’heure était souhaité.</i></style>`
-
-Plot.plot({
-  height: 600,
-  
-  y: {
-      label: "%",
-      grid: true
-    },
-    
-  x: {
-    domain: d3.sort(filtered_b, d => - d.Experience).map(d => d.Name_Experience),
-    grid: true
-    },
- 
- color: {legend: true}, 
- 
-  marks: [
-    Plot.barY(filtered_b,{
-     x: l => l.Name_Experience,
-     y: d => d.Total / d.Total_Region * 100,
-     fill: u => u.Name_Preference
-     })
-     ]
-})
-
-```
 
 ## Experience
 
@@ -77,6 +42,42 @@ Plot.plot({
      }),
      
      Plot.ruleX([50], {stroke: "red", strokeWidth: 2})
+     ]
+})
+
+```
+
+## Region
+
+```{ojs}
+viewof region = Inputs.select(["Auvergne-Rhône-Alpes","Bourgogne-Franche-Comté","Bretagne","Centre-Val de Loire","Corse","Grand Est","Guadeloupe","Guyane","Hauts-de-France","Saint Martin","Saint-Barthélemy","Île-de-France","La Réunion","Martinique","Mayotte","Normandie","Nouvelle-Aquitaine","Nouvelle-Calédonie","Occitanie","Pays de la Loire","Polynésie française","Provence-Alpes-Côte d'Azur","Saint-Pierre-et-Miquelon","Wallis et Futuna"], {label: "Region"})
+
+html`<br>`
+
+html`<style="text-align:left;"><i>En plus du niveau de satisfaction, il était également demandé si le maintien du changement d’heure était souhaité.</i></style>`
+
+Plot.plot({
+  height: 600,
+  
+  y: {
+      label: "%",
+      grid: true
+    },
+    
+  x: {
+    domain: d3.sort(filtered_b, d => - d.Experience).map(d => d.Name_Experience),
+    grid: true
+    },
+ 
+ color: {legend: true}, 
+ 
+  marks: [
+    Plot.barY(filtered_b,{
+     x: l => l.Name_Experience,
+     y: d => d.Total / d.Total_Region * 100,
+     fill: u => u.Name_Preference
+     })
+     
      ]
 })
 
