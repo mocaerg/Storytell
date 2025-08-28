@@ -1,235 +1,121 @@
-Region,Experience,Preference,Name_Preference,Name_Experience,Name_Region,Total,Total_Region
-2,1,1,Maintenir le changement d'heure,Très satisfaisante,Auvergne-Rhône-Alpes,17745,245089
-2,1,2,Supprimer le changement d'heure,Très satisfaisante,Auvergne-Rhône-Alpes,7851,245089
-2,2,1,Maintenir le changement d'heure,Satisfaisante,Auvergne-Rhône-Alpes,17029,245089
-2,2,2,Supprimer le changement d'heure,Satisfaisante,Auvergne-Rhône-Alpes,20129,245089
-2,3,1,Maintenir le changement d'heure,Sans opinion,Auvergne-Rhône-Alpes,4374,245089
-2,3,2,Supprimer le changement d'heure,Sans opinion,Auvergne-Rhône-Alpes,29076,245089
-2,4,1,Maintenir le changement d'heure,Négative,Auvergne-Rhône-Alpes,921,245089
-2,4,2,Supprimer le changement d'heure,Négative,Auvergne-Rhône-Alpes,99373,245089
-2,5,1,Maintenir le changement d'heure,Très négative,Auvergne-Rhône-Alpes,472,245089
-2,5,2,Supprimer le changement d'heure,Très négative,Auvergne-Rhône-Alpes,48119,245089
-3,1,1,Maintenir le changement d'heure,Très satisfaisante,Bourgogne-Franche-Comté,5475,77740
-3,1,2,Supprimer le changement d'heure,Très satisfaisante,Bourgogne-Franche-Comté,2649,77740
-3,2,1,Maintenir le changement d'heure,Satisfaisante,Bourgogne-Franche-Comté,5549,77740
-3,2,2,Supprimer le changement d'heure,Satisfaisante,Bourgogne-Franche-Comté,6543,77740
-3,3,1,Maintenir le changement d'heure,Sans opinion,Bourgogne-Franche-Comté,1558,77740
-3,3,2,Supprimer le changement d'heure,Sans opinion,Bourgogne-Franche-Comté,9031,77740
-3,4,1,Maintenir le changement d'heure,Négative,Bourgogne-Franche-Comté,322,77740
-3,4,2,Supprimer le changement d'heure,Négative,Bourgogne-Franche-Comté,31388,77740
-3,5,1,Maintenir le changement d'heure,Très négative,Bourgogne-Franche-Comté,170,77740
-3,5,2,Supprimer le changement d'heure,Très négative,Bourgogne-Franche-Comté,15055,77740
-4,1,1,Maintenir le changement d'heure,Très satisfaisante,Bretagne,6072,100262
-4,1,2,Supprimer le changement d'heure,Très satisfaisante,Bretagne,2536,100262
-4,2,1,Maintenir le changement d'heure,Satisfaisante,Bretagne,6907,100262
-4,2,2,Supprimer le changement d'heure,Satisfaisante,Bretagne,7389,100262
-4,3,1,Maintenir le changement d'heure,Sans opinion,Bretagne,1644,100262
-4,3,2,Supprimer le changement d'heure,Sans opinion,Bretagne,11280,100262
-4,4,1,Maintenir le changement d'heure,Négative,Bretagne,418,100262
-4,4,2,Supprimer le changement d'heure,Négative,Bretagne,43734,100262
-4,5,1,Maintenir le changement d'heure,Très négative,Bretagne,167,100262
-4,5,2,Supprimer le changement d'heure,Très négative,Bretagne,20115,100262
-5,1,1,Maintenir le changement d'heure,Très satisfaisante,Centre-Val de Loire,3784,61794
-5,1,2,Supprimer le changement d'heure,Très satisfaisante,Centre-Val de Loire,1913,61794
-5,2,1,Maintenir le changement d'heure,Satisfaisante,Centre-Val de Loire,3893,61794
-5,2,2,Supprimer le changement d'heure,Satisfaisante,Centre-Val de Loire,4981,61794
-5,3,1,Maintenir le changement d'heure,Sans opinion,Centre-Val de Loire,923,61794
-5,3,2,Supprimer le changement d'heure,Sans opinion,Centre-Val de Loire,7081,61794
-5,4,1,Maintenir le changement d'heure,Négative,Centre-Val de Loire,234,61794
-5,4,2,Supprimer le changement d'heure,Négative,Centre-Val de Loire,26350,61794
-5,5,1,Maintenir le changement d'heure,Très négative,Centre-Val de Loire,116,61794
-5,5,2,Supprimer le changement d'heure,Très négative,Centre-Val de Loire,12519,61794
-6,1,1,Maintenir le changement d'heure,Très satisfaisante,Corse,660,10797
-6,1,2,Supprimer le changement d'heure,Très satisfaisante,Corse,513,10797
-6,2,1,Maintenir le changement d'heure,Satisfaisante,Corse,580,10797
-6,2,2,Supprimer le changement d'heure,Satisfaisante,Corse,788,10797
-6,3,1,Maintenir le changement d'heure,Sans opinion,Corse,172,10797
-6,3,2,Supprimer le changement d'heure,Sans opinion,Corse,1201,10797
-6,4,1,Maintenir le changement d'heure,Négative,Corse,48,10797
-6,4,2,Supprimer le changement d'heure,Négative,Corse,4066,10797
-6,5,1,Maintenir le changement d'heure,Très négative,Corse,45,10797
-6,5,2,Supprimer le changement d'heure,Très négative,Corse,2724,10797
-7,1,1,Maintenir le changement d'heure,Très satisfaisante,Grand Est,11861,145982
-7,1,2,Supprimer le changement d'heure,Très satisfaisante,Grand Est,5317,145982
-7,2,1,Maintenir le changement d'heure,Satisfaisante,Grand Est,10939,145982
-7,2,2,Supprimer le changement d'heure,Satisfaisante,Grand Est,13280,145982
-7,3,1,Maintenir le changement d'heure,Sans opinion,Grand Est,2668,145982
-7,3,2,Supprimer le changement d'heure,Sans opinion,Grand Est,17998,145982
-7,4,1,Maintenir le changement d'heure,Négative,Grand Est,693,145982
-7,4,2,Supprimer le changement d'heure,Négative,Grand Est,56241,145982
-7,5,1,Maintenir le changement d'heure,Très négative,Grand Est,366,145982
-7,5,2,Supprimer le changement d'heure,Très négative,Grand Est,26619,145982
-8,1,1,Maintenir le changement d'heure,Très satisfaisante,Guadeloupe,33,501
-8,1,2,Supprimer le changement d'heure,Très satisfaisante,Guadeloupe,18,501
-8,2,1,Maintenir le changement d'heure,Satisfaisante,Guadeloupe,28,501
-8,2,2,Supprimer le changement d'heure,Satisfaisante,Guadeloupe,20,501
-8,3,1,Maintenir le changement d'heure,Sans opinion,Guadeloupe,4,501
-8,3,2,Supprimer le changement d'heure,Sans opinion,Guadeloupe,62,501
-8,4,1,Maintenir le changement d'heure,Négative,Guadeloupe,4,501
-8,4,2,Supprimer le changement d'heure,Négative,Guadeloupe,197,501
-8,5,1,Maintenir le changement d'heure,Très négative,Guadeloupe,3,501
-8,5,2,Supprimer le changement d'heure,Très négative,Guadeloupe,132,501
-9,1,1,Maintenir le changement d'heure,Très satisfaisante,Guyane,20,267
-9,1,2,Supprimer le changement d'heure,Très satisfaisante,Guyane,9,267
-9,2,1,Maintenir le changement d'heure,Satisfaisante,Guyane,12,267
-9,2,2,Supprimer le changement d'heure,Satisfaisante,Guyane,17,267
-9,3,1,Maintenir le changement d'heure,Sans opinion,Guyane,3,267
-9,3,2,Supprimer le changement d'heure,Sans opinion,Guyane,36,267
-9,4,1,Maintenir le changement d'heure,Négative,Guyane,1,267
-9,4,2,Supprimer le changement d'heure,Négative,Guyane,95,267
-9,5,2,Supprimer le changement d'heure,Très négative,Guyane,74,267
-10,1,1,Maintenir le changement d'heure,Très satisfaisante,Hauts-de-France,6626,117495
-10,1,2,Supprimer le changement d'heure,Très satisfaisante,Hauts-de-France,4832,117495
-10,2,1,Maintenir le changement d'heure,Satisfaisante,Hauts-de-France,7201,117495
-10,2,2,Supprimer le changement d'heure,Satisfaisante,Hauts-de-France,9778,117495
-10,3,1,Maintenir le changement d'heure,Sans opinion,Hauts-de-France,2239,117495
-10,3,2,Supprimer le changement d'heure,Sans opinion,Hauts-de-France,14512,117495
-10,4,1,Maintenir le changement d'heure,Négative,Hauts-de-France,534,117495
-10,4,2,Supprimer le changement d'heure,Négative,Hauts-de-France,46945,117495
-10,5,1,Maintenir le changement d'heure,Très négative,Hauts-de-France,331,117495
-10,5,2,Supprimer le changement d'heure,Très négative,Hauts-de-France,24497,117495
-11,1,1,Maintenir le changement d'heure,Très satisfaisante,Saint Martin,4,87
-11,1,2,Supprimer le changement d'heure,Très satisfaisante,Saint Martin,4,87
-11,2,1,Maintenir le changement d'heure,Satisfaisante,Saint Martin,2,87
-11,2,2,Supprimer le changement d'heure,Satisfaisante,Saint Martin,3,87
-11,3,1,Maintenir le changement d'heure,Sans opinion,Saint Martin,1,87
-11,3,2,Supprimer le changement d'heure,Sans opinion,Saint Martin,8,87
-11,4,2,Supprimer le changement d'heure,Négative,Saint Martin,32,87
-11,5,1,Maintenir le changement d'heure,Très négative,Saint Martin,2,87
-11,5,2,Supprimer le changement d'heure,Très négative,Saint Martin,31,87
-12,1,1,Maintenir le changement d'heure,Très satisfaisante,Saint-Barthélemy,5,84
-12,1,2,Supprimer le changement d'heure,Très satisfaisante,Saint-Barthélemy,7,84
-12,2,1,Maintenir le changement d'heure,Satisfaisante,Saint-Barthélemy,1,84
-12,2,2,Supprimer le changement d'heure,Satisfaisante,Saint-Barthélemy,6,84
-12,3,1,Maintenir le changement d'heure,Sans opinion,Saint-Barthélemy,2,84
-12,3,2,Supprimer le changement d'heure,Sans opinion,Saint-Barthélemy,9,84
-12,4,2,Supprimer le changement d'heure,Négative,Saint-Barthélemy,22,84
-12,5,1,Maintenir le changement d'heure,Très négative,Saint-Barthélemy,1,84
-12,5,2,Supprimer le changement d'heure,Très négative,Saint-Barthélemy,31,84
-13,1,1,Maintenir le changement d'heure,Très satisfaisante,Île-de-France,29307,355335
-13,1,2,Supprimer le changement d'heure,Très satisfaisante,Île-de-France,10415,355335
-13,2,1,Maintenir le changement d'heure,Satisfaisante,Île-de-France,26152,355335
-13,2,2,Supprimer le changement d'heure,Satisfaisante,Île-de-France,25431,355335
-13,3,1,Maintenir le changement d'heure,Sans opinion,Île-de-France,7204,355335
-13,3,2,Supprimer le changement d'heure,Sans opinion,Île-de-France,44027,355335
-13,4,1,Maintenir le changement d'heure,Négative,Île-de-France,1472,355335
-13,4,2,Supprimer le changement d'heure,Négative,Île-de-France,136344,355335
-13,5,1,Maintenir le changement d'heure,Très négative,Île-de-France,1177,355335
-13,5,2,Supprimer le changement d'heure,Très négative,Île-de-France,73806,355335
-14,1,1,Maintenir le changement d'heure,Très satisfaisante,La Réunion,100,2618
-14,1,2,Supprimer le changement d'heure,Très satisfaisante,La Réunion,112,2618
-14,2,1,Maintenir le changement d'heure,Satisfaisante,La Réunion,79,2618
-14,2,2,Supprimer le changement d'heure,Satisfaisante,La Réunion,144,2618
-14,3,1,Maintenir le changement d'heure,Sans opinion,La Réunion,22,2618
-14,3,2,Supprimer le changement d'heure,Sans opinion,La Réunion,210,2618
-14,4,1,Maintenir le changement d'heure,Négative,La Réunion,14,2618
-14,4,2,Supprimer le changement d'heure,Négative,La Réunion,1083,2618
-14,5,1,Maintenir le changement d'heure,Très négative,La Réunion,10,2618
-14,5,2,Supprimer le changement d'heure,Très négative,La Réunion,844,2618
-15,1,1,Maintenir le changement d'heure,Très satisfaisante,Martinique,20,375
-15,1,2,Supprimer le changement d'heure,Très satisfaisante,Martinique,11,375
-15,2,1,Maintenir le changement d'heure,Satisfaisante,Martinique,13,375
-15,2,2,Supprimer le changement d'heure,Satisfaisante,Martinique,20,375
-15,3,1,Maintenir le changement d'heure,Sans opinion,Martinique,4,375
-15,3,2,Supprimer le changement d'heure,Sans opinion,Martinique,53,375
-15,4,1,Maintenir le changement d'heure,Négative,Martinique,1,375
-15,4,2,Supprimer le changement d'heure,Négative,Martinique,147,375
-15,5,1,Maintenir le changement d'heure,Très négative,Martinique,1,375
-15,5,2,Supprimer le changement d'heure,Très négative,Martinique,105,375
-16,1,1,Maintenir le changement d'heure,Très satisfaisante,Mayotte,13,225
-16,1,2,Supprimer le changement d'heure,Très satisfaisante,Mayotte,4,225
-16,2,1,Maintenir le changement d'heure,Satisfaisante,Mayotte,6,225
-16,2,2,Supprimer le changement d'heure,Satisfaisante,Mayotte,13,225
-16,3,1,Maintenir le changement d'heure,Sans opinion,Mayotte,3,225
-16,3,2,Supprimer le changement d'heure,Sans opinion,Mayotte,14,225
-16,4,1,Maintenir le changement d'heure,Négative,Mayotte,1,225
-16,4,2,Supprimer le changement d'heure,Négative,Mayotte,85,225
-16,5,1,Maintenir le changement d'heure,Très négative,Mayotte,2,225
-16,5,2,Supprimer le changement d'heure,Très négative,Mayotte,84,225
-17,1,1,Maintenir le changement d'heure,Très satisfaisante,Normandie,4568,73898
-17,1,2,Supprimer le changement d'heure,Très satisfaisante,Normandie,2743,73898
-17,2,1,Maintenir le changement d'heure,Satisfaisante,Normandie,4835,73898
-17,2,2,Supprimer le changement d'heure,Satisfaisante,Normandie,6117,73898
-17,3,1,Maintenir le changement d'heure,Sans opinion,Normandie,1358,73898
-17,3,2,Supprimer le changement d'heure,Sans opinion,Normandie,8803,73898
-17,4,1,Maintenir le changement d'heure,Négative,Normandie,290,73898
-17,4,2,Supprimer le changement d'heure,Négative,Normandie,30701,73898
-17,5,1,Maintenir le changement d'heure,Très négative,Normandie,162,73898
-17,5,2,Supprimer le changement d'heure,Très négative,Normandie,14321,73898
-18,1,1,Maintenir le changement d'heure,Très satisfaisante,Nouvelle-Aquitaine,10090,166915
-18,1,2,Supprimer le changement d'heure,Très satisfaisante,Nouvelle-Aquitaine,5270,166915
-18,2,1,Maintenir le changement d'heure,Satisfaisante,Nouvelle-Aquitaine,10487,166915
-18,2,2,Supprimer le changement d'heure,Satisfaisante,Nouvelle-Aquitaine,13207,166915
-18,3,1,Maintenir le changement d'heure,Sans opinion,Nouvelle-Aquitaine,2601,166915
-18,3,2,Supprimer le changement d'heure,Sans opinion,Nouvelle-Aquitaine,18074,166915
-18,4,1,Maintenir le changement d'heure,Négative,Nouvelle-Aquitaine,676,166915
-18,4,2,Supprimer le changement d'heure,Négative,Nouvelle-Aquitaine,71307,166915
-18,5,1,Maintenir le changement d'heure,Très négative,Nouvelle-Aquitaine,289,166915
-18,5,2,Supprimer le changement d'heure,Très négative,Nouvelle-Aquitaine,34914,166915
-19,1,1,Maintenir le changement d'heure,Très satisfaisante,Nouvelle-Calédonie,28,364
-19,1,2,Supprimer le changement d'heure,Très satisfaisante,Nouvelle-Calédonie,13,364
-19,2,1,Maintenir le changement d'heure,Satisfaisante,Nouvelle-Calédonie,24,364
-19,2,2,Supprimer le changement d'heure,Satisfaisante,Nouvelle-Calédonie,25,364
-19,3,1,Maintenir le changement d'heure,Sans opinion,Nouvelle-Calédonie,3,364
-19,3,2,Supprimer le changement d'heure,Sans opinion,Nouvelle-Calédonie,48,364
-19,4,1,Maintenir le changement d'heure,Négative,Nouvelle-Calédonie,2,364
-19,4,2,Supprimer le changement d'heure,Négative,Nouvelle-Calédonie,142,364
-19,5,1,Maintenir le changement d'heure,Très négative,Nouvelle-Calédonie,1,364
-19,5,2,Supprimer le changement d'heure,Très négative,Nouvelle-Calédonie,78,364
-20,1,1,Maintenir le changement d'heure,Très satisfaisante,Occitanie,11779,160631
-20,1,2,Supprimer le changement d'heure,Très satisfaisante,Occitanie,5303,160631
-20,2,1,Maintenir le changement d'heure,Satisfaisante,Occitanie,10634,160631
-20,2,2,Supprimer le changement d'heure,Satisfaisante,Occitanie,12377,160631
-20,3,1,Maintenir le changement d'heure,Sans opinion,Occitanie,2798,160631
-20,3,2,Supprimer le changement d'heure,Sans opinion,Occitanie,17108,160631
-20,4,1,Maintenir le changement d'heure,Négative,Occitanie,613,160631
-20,4,2,Supprimer le changement d'heure,Négative,Occitanie,65827,160631
-20,5,1,Maintenir le changement d'heure,Très négative,Occitanie,360,160631
-20,5,2,Supprimer le changement d'heure,Très négative,Occitanie,33832,160631
-21,1,1,Maintenir le changement d'heure,Très satisfaisante,Pays de la Loire,5254,91291
-21,1,2,Supprimer le changement d'heure,Très satisfaisante,Pays de la Loire,2523,91291
-21,2,1,Maintenir le changement d'heure,Satisfaisante,Pays de la Loire,6227,91291
-21,2,2,Supprimer le changement d'heure,Satisfaisante,Pays de la Loire,7216,91291
-21,3,1,Maintenir le changement d'heure,Sans opinion,Pays de la Loire,1540,91291
-21,3,2,Supprimer le changement d'heure,Sans opinion,Pays de la Loire,11066,91291
-21,4,1,Maintenir le changement d'heure,Négative,Pays de la Loire,320,91291
-21,4,2,Supprimer le changement d'heure,Négative,Pays de la Loire,39489,91291
-21,5,1,Maintenir le changement d'heure,Très négative,Pays de la Loire,183,91291
-21,5,2,Supprimer le changement d'heure,Très négative,Pays de la Loire,17473,91291
-22,1,1,Maintenir le changement d'heure,Très satisfaisante,Polynésie française,17,228
-22,1,2,Supprimer le changement d'heure,Très satisfaisante,Polynésie française,9,228
-22,2,1,Maintenir le changement d'heure,Satisfaisante,Polynésie française,20,228
-22,2,2,Supprimer le changement d'heure,Satisfaisante,Polynésie française,6,228
-22,3,1,Maintenir le changement d'heure,Sans opinion,Polynésie française,4,228
-22,3,2,Supprimer le changement d'heure,Sans opinion,Polynésie française,25,228
-22,4,1,Maintenir le changement d'heure,Négative,Polynésie française,1,228
-22,4,2,Supprimer le changement d'heure,Négative,Polynésie française,80,228
-22,5,1,Maintenir le changement d'heure,Très négative,Polynésie française,1,228
-22,5,2,Supprimer le changement d'heure,Très négative,Polynésie française,65,228
-23,1,1,Maintenir le changement d'heure,Très satisfaisante,Provence-Alpes-Côte d'Azur,12192,165889
-23,1,2,Supprimer le changement d'heure,Très satisfaisante,Provence-Alpes-Côte d'Azur,6507,165889
-23,2,1,Maintenir le changement d'heure,Satisfaisante,Provence-Alpes-Côte d'Azur,10339,165889
-23,2,2,Supprimer le changement d'heure,Satisfaisante,Provence-Alpes-Côte d'Azur,12901,165889
-23,3,1,Maintenir le changement d'heure,Sans opinion,Provence-Alpes-Côte d'Azur,2868,165889
-23,3,2,Supprimer le changement d'heure,Sans opinion,Provence-Alpes-Côte d'Azur,17786,165889
-23,4,1,Maintenir le changement d'heure,Négative,Provence-Alpes-Côte d'Azur,717,165889
-23,4,2,Supprimer le changement d'heure,Négative,Provence-Alpes-Côte d'Azur,66424,165889
-23,5,1,Maintenir le changement d'heure,Très négative,Provence-Alpes-Côte d'Azur,455,165889
-23,5,2,Supprimer le changement d'heure,Très négative,Provence-Alpes-Côte d'Azur,35700,165889
-24,1,1,Maintenir le changement d'heure,Très satisfaisante,Saint-Pierre-et-Miquelon,6,214
-24,1,2,Supprimer le changement d'heure,Très satisfaisante,Saint-Pierre-et-Miquelon,6,214
-24,2,1,Maintenir le changement d'heure,Satisfaisante,Saint-Pierre-et-Miquelon,12,214
-24,2,2,Supprimer le changement d'heure,Satisfaisante,Saint-Pierre-et-Miquelon,13,214
-24,3,1,Maintenir le changement d'heure,Sans opinion,Saint-Pierre-et-Miquelon,4,214
-24,3,2,Supprimer le changement d'heure,Sans opinion,Saint-Pierre-et-Miquelon,17,214
-24,4,1,Maintenir le changement d'heure,Négative,Saint-Pierre-et-Miquelon,2,214
-24,4,2,Supprimer le changement d'heure,Négative,Saint-Pierre-et-Miquelon,88,214
-24,5,2,Supprimer le changement d'heure,Très négative,Saint-Pierre-et-Miquelon,66,214
-25,1,1,Maintenir le changement d'heure,Très satisfaisante,Wallis et Futuna,11,98
-25,1,2,Supprimer le changement d'heure,Très satisfaisante,Wallis et Futuna,6,98
-25,2,1,Maintenir le changement d'heure,Satisfaisante,Wallis et Futuna,6,98
-25,2,2,Supprimer le changement d'heure,Satisfaisante,Wallis et Futuna,3,98
-25,3,2,Supprimer le changement d'heure,Sans opinion,Wallis et Futuna,10,98
-25,4,2,Supprimer le changement d'heure,Négative,Wallis et Futuna,26,98
-25,5,1,Maintenir le changement d'heure,Très négative,Wallis et Futuna,2,98
-25,5,2,Supprimer le changement d'heure,Très négative,Wallis et Futuna,34,98
+Region,Experience,Name_Experience,Name_Region,Total_Region,Total
+2,1,Très satisfaisante,Auvergne-Rhône-Alpes,245089,25596
+2,2,Satisfaisante,Auvergne-Rhône-Alpes,245089,37158
+2,3,Sans opinion,Auvergne-Rhône-Alpes,245089,33450
+2,4,Négative,Auvergne-Rhône-Alpes,245089,100294
+2,5,Très négative,Auvergne-Rhône-Alpes,245089,48591
+3,1,Très satisfaisante,Bourgogne-Franche-Comté,77740,8124
+3,2,Satisfaisante,Bourgogne-Franche-Comté,77740,12092
+3,3,Sans opinion,Bourgogne-Franche-Comté,77740,10589
+3,4,Négative,Bourgogne-Franche-Comté,77740,31710
+3,5,Très négative,Bourgogne-Franche-Comté,77740,15225
+4,1,Très satisfaisante,Bretagne,100262,8608
+4,2,Satisfaisante,Bretagne,100262,14296
+4,3,Sans opinion,Bretagne,100262,12924
+4,4,Négative,Bretagne,100262,44152
+4,5,Très négative,Bretagne,100262,20282
+5,1,Très satisfaisante,Centre-Val de Loire,61794,5697
+5,2,Satisfaisante,Centre-Val de Loire,61794,8874
+5,3,Sans opinion,Centre-Val de Loire,61794,8004
+5,4,Négative,Centre-Val de Loire,61794,26584
+5,5,Très négative,Centre-Val de Loire,61794,12635
+6,1,Très satisfaisante,Corse,10797,1173
+6,2,Satisfaisante,Corse,10797,1368
+6,3,Sans opinion,Corse,10797,1373
+6,4,Négative,Corse,10797,4114
+6,5,Très négative,Corse,10797,2769
+7,1,Très satisfaisante,Grand Est,145982,17178
+7,2,Satisfaisante,Grand Est,145982,24219
+7,3,Sans opinion,Grand Est,145982,20666
+7,4,Négative,Grand Est,145982,56934
+7,5,Très négative,Grand Est,145982,26985
+8,1,Très satisfaisante,Guadeloupe,501,51
+8,2,Satisfaisante,Guadeloupe,501,48
+8,3,Sans opinion,Guadeloupe,501,66
+8,4,Négative,Guadeloupe,501,201
+8,5,Très négative,Guadeloupe,501,135
+9,1,Très satisfaisante,Guyane,267,29
+9,2,Satisfaisante,Guyane,267,29
+9,3,Sans opinion,Guyane,267,39
+9,4,Négative,Guyane,267,96
+9,5,Très négative,Guyane,267,74
+10,1,Très satisfaisante,Hauts-de-France,117495,11458
+10,2,Satisfaisante,Hauts-de-France,117495,16979
+10,3,Sans opinion,Hauts-de-France,117495,16751
+10,4,Négative,Hauts-de-France,117495,47479
+10,5,Très négative,Hauts-de-France,117495,24828
+11,1,Très satisfaisante,Saint Martin,87,8
+11,2,Satisfaisante,Saint Martin,87,5
+11,3,Sans opinion,Saint Martin,87,9
+11,4,Négative,Saint Martin,87,32
+11,5,Très négative,Saint Martin,87,33
+12,1,Très satisfaisante,Saint-Barthélemy,84,12
+12,2,Satisfaisante,Saint-Barthélemy,84,7
+12,3,Sans opinion,Saint-Barthélemy,84,11
+12,4,Négative,Saint-Barthélemy,84,22
+12,5,Très négative,Saint-Barthélemy,84,32
+13,1,Très satisfaisante,Île-de-France,355335,39722
+13,2,Satisfaisante,Île-de-France,355335,51583
+13,3,Sans opinion,Île-de-France,355335,51231
+13,4,Négative,Île-de-France,355335,137816
+13,5,Très négative,Île-de-France,355335,74983
+14,1,Très satisfaisante,La Réunion,2618,212
+14,2,Satisfaisante,La Réunion,2618,223
+14,3,Sans opinion,La Réunion,2618,232
+14,4,Négative,La Réunion,2618,1097
+14,5,Très négative,La Réunion,2618,854
+15,1,Très satisfaisante,Martinique,375,31
+15,2,Satisfaisante,Martinique,375,33
+15,3,Sans opinion,Martinique,375,57
+15,4,Négative,Martinique,375,148
+15,5,Très négative,Martinique,375,106
+16,1,Très satisfaisante,Mayotte,225,17
+16,2,Satisfaisante,Mayotte,225,19
+16,3,Sans opinion,Mayotte,225,17
+16,4,Négative,Mayotte,225,86
+16,5,Très négative,Mayotte,225,86
+17,1,Très satisfaisante,Normandie,73898,7311
+17,2,Satisfaisante,Normandie,73898,10952
+17,3,Sans opinion,Normandie,73898,10161
+17,4,Négative,Normandie,73898,30991
+17,5,Très négative,Normandie,73898,14483
+18,1,Très satisfaisante,Nouvelle-Aquitaine,166915,15360
+18,2,Satisfaisante,Nouvelle-Aquitaine,166915,23694
+18,3,Sans opinion,Nouvelle-Aquitaine,166915,20675
+18,4,Négative,Nouvelle-Aquitaine,166915,71983
+18,5,Très négative,Nouvelle-Aquitaine,166915,35203
+19,1,Très satisfaisante,Nouvelle-Calédonie,364,41
+19,2,Satisfaisante,Nouvelle-Calédonie,364,49
+19,3,Sans opinion,Nouvelle-Calédonie,364,51
+19,4,Négative,Nouvelle-Calédonie,364,144
+19,5,Très négative,Nouvelle-Calédonie,364,79
+20,1,Très satisfaisante,Occitanie,160631,17082
+20,2,Satisfaisante,Occitanie,160631,23011
+20,3,Sans opinion,Occitanie,160631,19906
+20,4,Négative,Occitanie,160631,66440
+20,5,Très négative,Occitanie,160631,34192
+21,1,Très satisfaisante,Pays de la Loire,91291,7777
+21,2,Satisfaisante,Pays de la Loire,91291,13443
+21,3,Sans opinion,Pays de la Loire,91291,12606
+21,4,Négative,Pays de la Loire,91291,39809
+21,5,Très négative,Pays de la Loire,91291,17656
+22,1,Très satisfaisante,Polynésie française,228,26
+22,2,Satisfaisante,Polynésie française,228,26
+22,3,Sans opinion,Polynésie française,228,29
+22,4,Négative,Polynésie française,228,81
+22,5,Très négative,Polynésie française,228,66
+23,1,Très satisfaisante,Provence-Alpes-Côte d'Azur,165889,18699
+23,2,Satisfaisante,Provence-Alpes-Côte d'Azur,165889,23240
+23,3,Sans opinion,Provence-Alpes-Côte d'Azur,165889,20654
+23,4,Négative,Provence-Alpes-Côte d'Azur,165889,67141
+23,5,Très négative,Provence-Alpes-Côte d'Azur,165889,36155
+24,1,Très satisfaisante,Saint-Pierre-et-Miquelon,214,12
+24,2,Satisfaisante,Saint-Pierre-et-Miquelon,214,25
+24,3,Sans opinion,Saint-Pierre-et-Miquelon,214,21
+24,4,Négative,Saint-Pierre-et-Miquelon,214,90
+24,5,Très négative,Saint-Pierre-et-Miquelon,214,66
+25,1,Très satisfaisante,Wallis et Futuna,98,17
+25,2,Satisfaisante,Wallis et Futuna,98,9
+25,3,Sans opinion,Wallis et Futuna,98,10
+25,4,Négative,Wallis et Futuna,98,26
+25,5,Très négative,Wallis et Futuna,98,36
