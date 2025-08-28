@@ -1,20 +1,49 @@
 ---
-title: "Les Français sont-ils satisfaits du changement d’heure ?"
-subtitle: "Du 4 février au 3 mars 2019, la commission des affaires européennes a lancé une consultation citoyenne sur le changement d'heure (https://data.assemblee-national.fr/). Cette consultation a reçu <b>2 103 999 réponses</b>. Les résultats sont présentés ci-dessous sous forme graphique, en fonction du niveau de satisfaction des répondants et par région :"
+title: "Changement d’heure : les données ont leur mot à dire"
+subtitle: "Une datavisualisation maison pour donner vie aux résultats"
+
 author: gmo
 format:
   html:
     echo: false
-    code-tools: true
+    code-tools: false
     embed-resources: true
+    
+    
+    include-in-header: 
+      text: |
+        <style>
+          p {
+            text-align: justify;
+          }
+        </style>
+
 ---
 
-::: {.panel-tabset}
+Pour ceux qui me connaissent, ils savent que j’aime manipuler les données (et pas seulement les capabilités machines…). Et aujourd’hui, on peut en trouver beaucoup sur des sujets très variés, comme par exemple le changement d’heure été/hiver.
 
-## Experience
+Du 4 février au 3 mars 2019, la Commission des affaires européennes en France a lancé une consultation citoyenne sur le changement d’heure (https://data.assemblee-nationale.fr/autres/consultations-citoyennes/changement-d-heure). Cette consultation a recueilli <b>2 103 999 réponses</b>.
+
+Sur le site, on trouve un lien vers les données au format SQL ainsi qu’un bref résumé des résultats, mais sans visualisation des données — ce qui est un peu dommage.
+
+C’est pourquoi je me suis dit : pourquoi ne pas essayer de faire cette datavisualisation à partir des données disponibles et de la partager avec vous ?
+
+Je vous passe tous les aspects techniques, mais ci-dessous se trouve la dataviz <b>interactive</b> que j’ai réalisée, et qui, selon moi, résume bien les résultats.
+
+Sans surprise, vous pouvez constater que pour la majorité d’entre nous, quelle que soit la région, l’expérience du changement d’heure n’est pas bonne. En effet, plus de 50 % des personnes, dans toutes les régions, déclarent une expérience négative ou très négative du changement d’heure.
+
+<i>Selectionner un(des) type(s) d'experience(s):</i>
 
 ```{ojs}
-viewof experience = Inputs.checkbox(["Très satisfaisante","Satisfaisante","Sans opinion","Négative","Très négative"], {label: "Experience", multiple:true, value: ["Très satisfaisante","Satisfaisante"]})
+
+data = FileAttachment("data/Consultation_Chgt_Heure.csv").csv({ typed: true })
+
+filtered_a = data.filter(function(product) {
+                  return experience.includes(product.Name_Experience)
+                  })
+
+
+viewof experience = Inputs.checkbox(["Très satisfaisante","Satisfaisante","Sans opinion","Négative","Très négative"], {label: "", multiple:true, value: ["Très satisfaisante","Satisfaisante","Sans opinion","Négative","Très négative"]})
 
 html`<br>`
 
@@ -34,6 +63,8 @@ Plot.plot({
  
  color: {legend: true}, 
  
+ caption: "Expression de la satisfaction (en %) sur le changement d'heure par region",  
+ 
   marks: [
     Plot.barX(filtered_a,{
      y: l => l.Name_Region,
@@ -47,59 +78,13 @@ Plot.plot({
 
 ```
 
-## Region
+En revanche, si vous sélectionnez uniquement les expériences extrêmes — très négatives — dans le graphique, on peut constater quelque chose d’étonnant dans les résultats : ce sont les régions d’outre-mer (DOM-TOM) qui ont exprimé le plus souvent une expérience très négative, comparativement aux régions métropolitaines.
 
-```{ojs}
-viewof region = Inputs.select(["Auvergne-Rhône-Alpes","Bourgogne-Franche-Comté","Bretagne","Centre-Val de Loire","Corse","Grand Est","Guadeloupe","Guyane","Hauts-de-France","Saint Martin","Saint-Barthélemy","Île-de-France","La Réunion","Martinique","Mayotte","Normandie","Nouvelle-Aquitaine","Nouvelle-Calédonie","Occitanie","Pays de la Loire","Polynésie française","Provence-Alpes-Côte d'Azur","Saint-Pierre-et-Miquelon","Wallis et Futuna"], {label: "Region"})
+L’explication est facile à trouver sur Internet : les habitants des DOM-TOM ne vivent pas directement le changement d’heure. En effet, ces territoires ne changent jamais d’heure en raison d’une faible variation de l’ensoleillement tout au long de l’année, liée à leur proximité avec l’équateur.
 
-html`<br>`
+Cependant, le changement d’heure en France métropolitaine modifie le décalage horaire avec les DOM-TOM, ce qui peut perturber les appels professionnels, les visioconférences, ou encore les horaires de diffusion (journaux télévisés, matchs, etc.). Les habitants d’outre-mer doivent également anticiper les nouveaux horaires des services métropolitains. C’est pourquoi le changement d’heure est parfois perçu comme une mesure métropolitaine peu adaptée à leur quotidien — d’où les résultats de satisfaction très négatifs dans ces régions.
 
-html`<style="text-align:left;"><i>En plus du niveau de satisfaction, il était également demandé si le maintien du changement d’heure était souhaité.</i></style>`
-
-Plot.plot({
-  height: 600,
-  
-  y: {
-      label: "%",
-      grid: true
-    },
-    
-  x: {
-    domain: d3.sort(filtered_b, d => - d.Experience).map(d => d.Name_Experience),
-    grid: true
-    },
- 
- color: {legend: true}, 
- 
-  marks: [
-    Plot.barY(filtered_b,{
-     x: l => l.Name_Experience,
-     y: d => d.Total / d.Total_Region * 100,
-     fill: u => u.Name_Preference
-     })
-     
-     ]
-})
-
-```
-
-:::
-
-```{ojs}
-data = FileAttachment("data/Consultation_Chgt_Heure.csv").csv({ typed: true })
-
-filtered_a = data.filter(function(product) {
-                  return experience.includes(product.Name_Experience)
-                  })
-
-filtered_b = data.filter(function(product) {
-             return  product.Name_Region == region;
-              })              
-```
-
-
-
-
+Comme quoi, les données ont toujours une histoire à nous raconter…
 
 
 
